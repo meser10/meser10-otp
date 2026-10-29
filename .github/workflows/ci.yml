@@ -1,0 +1,45 @@
+# Runs the three test suites on every push and pull request.
+# Every test uses a fake HTTP layer: no request leaves the runner and no SMS is sent.
+name: Tests
+on:
+  push:
+    branches: ['main']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  node:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['18', '20', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+        working-directory: node
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.8', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests
+        working-directory: python
+  php:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - run: php php/tests/run.php | tee out.txt && grep -q "ALL OK" out.txt

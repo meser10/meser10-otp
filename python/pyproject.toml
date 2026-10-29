@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meser10-otp"
+version = "1.0.0"
+description = "Send and verify one-time SMS codes (OTP) through the Meser 10 API. No dependencies, Israeli mobile numbers by default."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Meser-Eser Ltd", email = "support@meser10.co.il" }]
+keywords = ["otp", "sms", "verification", "2fa", "israel", "meser10"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent", "Topic :: Communications :: Telephony"]
+
+[project.urls]
+Homepage = "https://www.meser10.co.il/features/otp/"
+Source = "https://github.com/meser10/meser10-otp"

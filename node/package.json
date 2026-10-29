@@ -1,0 +1,38 @@
+{
+  "name": "@meser10/otp",
+  "version": "1.0.0",
+  "description": "Send and verify one-time SMS codes (OTP) through the Meser 10 API. Zero dependencies, Israeli mobile numbers by default.",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/otp.test.js"
+  },
+  "keywords": [
+    "otp",
+    "sms",
+    "verification",
+    "2fa",
+    "israel",
+    "meser10",
+    "one-time-password"
+  ],
+  "homepage": "https://www.meser10.co.il/features/otp/",
+  "license": "MIT",
+  "author": "Meser-Eser Ltd <support@meser10.co.il> (https://www.meser10.co.il/)",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meser10/meser10-otp.git",
+    "directory": "node"
+  }
+}
